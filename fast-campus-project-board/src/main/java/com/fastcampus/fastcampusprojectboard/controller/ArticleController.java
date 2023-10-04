@@ -39,7 +39,7 @@ public class ArticleController {
         List<Integer> barNumbers =paginationService.getPaginationBarNumbers(pageable.getPageNumber(),articles.getTotalPages());
         map.addAttribute("articles", articles);
         map.addAttribute("paginationBarNumbers", barNumbers);
-        map.addAttribute("totalCount", articleService.getArticleCount());
+        map.addAttribute("searchTypes", SearchType.values());
 
         return "articles/index";
     }
@@ -49,6 +49,7 @@ public class ArticleController {
         ArticleWithCommentsResponse article = ArticleWithCommentsResponse.from(articleService.getArticle(articleId));
         map.addAttribute("article", article);
         map.addAttribute("articleComments", article.articleCommentsResponses());
+        map.addAttribute("totalCount", articleService.getArticleCount());
         return "articles/detail";
     }
 
