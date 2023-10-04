@@ -1,2 +1,7 @@
-package com.fastcampus.fastcampusprojectboard.repository.querydsl;public interface ArticleRepositoryCustom {
+package com.fastcampus.fastcampusprojectboard.repository.querydsl;
+
+import java.util.List;
+
+public interface ArticleRepositoryCustom {
+    List<String> findAllDistinctHashtags();
 }
